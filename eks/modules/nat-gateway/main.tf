@@ -29,7 +29,7 @@ resource "aws_nat_gateway" "nat_1" {
 
 #NAT Gateway 2
 resource "aws_nat_gateway" "nat_2" {
-  allocation_id = aws_eip.EIP_NAT_IG1.id
+  allocation_id = aws_eip.EIP_NAT_IG2.id
   subnet_id     = var.pub_sub_2
 
   tags = {
