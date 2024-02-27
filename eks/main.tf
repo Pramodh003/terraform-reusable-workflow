@@ -17,7 +17,7 @@ module "mynat"{
     igw_id = module.myvpc.igw_id
     pri_sub_1 = module.myvpc.pri_sub_1
     pri_sub_2 = module.myvpc.pri_sub_2
-    vpc_id  = module.myvpc.igw_id
+    vpc_id  = module.myvpc.vpc_id
 }
 
 module "iam"{

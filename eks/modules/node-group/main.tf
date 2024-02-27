@@ -25,5 +25,5 @@ resource "aws_eks_node_group" "eks_node_group" {
     name = "${var.eks_cluster_name}-Node-group"
   }
 
-
+  version = "1.28"
 }

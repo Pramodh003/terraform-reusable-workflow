@@ -20,7 +20,7 @@ resource "aws_internet_gateway" "eks-igw" {
   }
 }
 # Data availability zone
-data "aws_availability_zones" "available" {}
+data "aws_availability_zones" "availability_zones" {}
 
 
 #Create Two public subnet
@@ -29,7 +29,7 @@ resource "aws_subnet" "public_subnet_1" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = var.public-subnet-1
   map_public_ip_on_launch = true
-  availability_zone = data.aws_availability_zones.available.names[0]
+  availability_zone = data.aws_availability_zones.availability_zones.names[0]
 
   tags = {
     Name = "pub-sub1"
@@ -43,7 +43,7 @@ resource "aws_subnet" "public_subnet_2" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = var.public-subnet-2
   map_public_ip_on_launch = true
-  availability_zone = data.aws_availability_zones.available.names[1]
+  availability_zone = data.aws_availability_zones.availability_zones.names[1]
 
   tags = {
     Name = "pub-sub2"
@@ -82,7 +82,7 @@ resource "aws_subnet" "private_subnet_1" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = var.private-subnet-1
   map_public_ip_on_launch = true
-  availability_zone = data.aws_availability_zones.available.names[0]
+  availability_zone = data.aws_availability_zones.availability_zones.names[0]
 
   tags = {
     Name = "prv-sub1"
@@ -96,7 +96,7 @@ resource "aws_subnet" "private_subnet_2" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = var.private-subnet-2
   map_public_ip_on_launch = true
-  availability_zone = data.aws_availability_zones.available.names[1]
+  availability_zone = data.aws_availability_zones.availability_zones.names[1]
 
   tags = {
     Name = "pub-sub2"
